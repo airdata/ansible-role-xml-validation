@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: "${{ github.repository }}"
-      - name: Molecule
-        uses: monolithprojects/action-molecule@v1.4.1
+      - name: Molecule for Ansible
+        uses: MonolithProjects/action-molecule@v1.4.5
