@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.amadeus.com/expense-feed/config/xml"
+           elementFormDefault="qualified">
+    <xs:element name="PreInvoiceData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PreInvoiceCompany" minOccurs="0" maxOccurs="999">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Settings">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DirectoryImport">
+                                            <xs:complexType>
+                                                <xs:attribute name="directoryUrl" type="xs:string" use="required">
+                                                    <xs:annotation>
+                                                        <xs:documentation>URL of the directory to import; might be a directory of a FTP server
+                                                            (ftp://...) or a directory on disk (file://...)
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="fileType" type="xs:string" use="required">
+                                                    <xs:annotation>
+                                                        <xs:documentation>file name to search, e.g. *.xml or *.txt</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="fileFilterRegex" type="xs:string" use="optional">
+                                                    <xs:annotation>
+                                                        <xs:documentation>regex used to filter files from directory, ex: '.*(DTE9016|DTH2838).*\.pgp'
+                                                            ; when set, overrides the fileType
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="username" type="xs:string" use="optional">
+                                                    <xs:annotation>
+                                                        <xs:documentation>username to be used for FTP access</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="password" type="xs:string" use="optional">
+                                                    <xs:annotation>
+                                                        <xs:documentation>password for FTP access</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="zipPassword" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>password for the zip file</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="emailReceiverSuccess" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>email receiver, which receives an email in case of success
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="emailReceiverError" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>email receiver, which receives an email in case of error</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="emailReceiverTechnicalError" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>email receiver, which receives an email in case of technical error
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="privateKeyFile" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>the private key filename for the communication</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="publicKeyFile" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>the public key filename for the communication</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PgpSettings" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:attribute name="password">
+                                                    <xs:annotation>
+                                                        <xs:documentation>password for the PGP decryption</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="privateKeyFileName">
+                                                    <xs:annotation>
+                                                        <xs:documentation>path and file name to the PGP private key file</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="signaturePublicKeyFileName">
+                                                    <xs:annotation>
+                                                        <xs:documentation>path and file name to the PGP public key file to verify the content
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="encryptionType" use="required">
+                                                    <xs:annotation>
+                                                        <xs:documentation>allowed values are 'pgp' or 'pgp-signed' or 'no'</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Companies">
+                                            <xs:complexType >
+                                                <xs:sequence>
+                                                    <xs:element name="Corporation" minOccurs="0" maxOccurs="9999">
+                                                        <xs:complexType >
+                                                            <xs:attribute name="CorporationNumber" use="required"/>
+                                                            <xs:attribute name="Server" use="required">
+                                                            <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="amadeus"/>
+                                                            <xs:enumeration value="amadeus2"/>
+                                                            <xs:enumeration value="travel"/>
+                                                            <xs:enumeration value="americas"/>
+                                                            <xs:enumeration value="kallisto"/>
+                                                            <xs:enumeration value="mega"/>
+                                                            <xs:enumeration value="bali"/>
+                                                            <xs:enumeration value="bangkok"/>
+                                                            <xs:enumeration value="delhi"/>
+                                                            <xs:enumeration value="apac"/>
+                                                            <xs:enumeration value="bush0"/>
+                                                            <xs:enumeration value="bush1"/>
+                                                            <xs:enumeration value="Bali"/>
+                                                            <xs:enumeration value="expensegt-demo"/>
+                                                            <xs:enumeration value="jpatch"/>
+                                                            <xs:enumeration value="jakarta"/>
+                                                            </xs:restriction>
+                                                            </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="System" use="required">
+                                                            <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                            <xs:pattern value="[^\s]+"/>
+                                                            <xs:minLength value="2"/>
+                                                            </xs:restriction>
+                                                            </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="homeCountryIsoCode"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

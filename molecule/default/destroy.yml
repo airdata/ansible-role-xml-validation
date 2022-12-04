@@ -1,0 +1,21 @@
+---
+- name: Destroy
+  hosts: localhost
+  vars:
+    xml_file: xml-file.xml
+    xsd_file: xsd-schema.xsd
+    env: dev
+  gather_facts: no
+  tasks:
+    - name: Block
+      block:
+        - name: Remove file (delete file)
+          ansible.builtin.file:
+            path: "{{ item }}"
+            state: absent
+          with_items:
+            - "{{ xml_file }}-{{ env }}"
+            - "{{ xsd_file }}-{{ env }}"
+      rescue:
+        - name: It's ok we're at startup
+          meta: noop

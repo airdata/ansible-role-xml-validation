@@ -1,0 +1,7 @@
+---
+templates_folder: templates
+xml_path: "{{ templates_folder }}/{{ xml_file }}"
+xml_file: xml-file.xml
+xsd_file: xsd-schema.xsd
+xsd_schema: "{{ templates_folder }}/{{ xsd_file }}"
+env: dev

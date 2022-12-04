@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: "Include ansible-role-xml-validation"
+      ansible.builtin.include_role:
+        name: "ansible-role-xml-validation"

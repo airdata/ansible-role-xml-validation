@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreInvoiceData xmlns="http://www.amadeus.com/expense-feed/config/xml">
+    <PreInvoiceCompany name="AirPlusCdf3">
+        <Settings>
+            <DirectoryImport
+                directoryUrl="sftp://EXAMPLE/airplus/"
+                fileType="*.pgp"
+                username="EXAMPLE"
+                password="EXAMPLE"
+                emailReceiverError="EXAMPLE"
+                emailReceiverTechnicalError="EXAMPLE"
+                emailReceiverSuccess="EXAMPLE"/>
+            <PgpSettings
+                encryptionType="pgp"
+                privateKeyFileName="EXAMPLE"
+                password="EXAMPLE"/>
+            <Companies>
+                <Corporation CorporationNumber="MFTBC01" Server="jakarta" System="expense-gt-test-ama-jp-daimler"/>
+                <Corporation CorporationNumber="AD010" Server="bali" System="ama-fr-adeo-poc"/>
+                <Corporation CorporationNumber="UNITY010" Server="bali" System="ama-fbt-business-unitymedia"/>
+                <Corporation CorporationNumber="ifaoDE111-AirP-CDF3" Server="bali" System="ifaode-demo-ebert-bali"/>
+                <Corporation CorporationNumber="ifaoDE222-AirP-CDF3" Server="jakarta" System="ifaode-demo-ebert-jakarta"/>
+                <Corporation CorporationNumber="DTG0410" Server="delhi" System="vegas"/>
+            </Companies>
+        </Settings>
+    </PreInvoiceCompany>
+</PreInvoiceData>

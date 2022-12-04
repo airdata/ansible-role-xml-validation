@@ -1,0 +1,29 @@
+---
+- name: "Check if xmllint is installed"
+  package_facts:
+    manager: "auto"
+
+- name: Install libxml2-utils
+  apk:
+    name: libxml2-utils
+    state: latest
+  when: "'libxml2-utils' not in ansible_facts.packages"
+
+- name: Populate XML file
+  template:
+    src: "{{ item }}"
+    dest: "{{ xml_file }}-{{ env }}"
+  with_items:
+    - "{{ xml_path }}"
+
+- name: Populate XSD file
+  template:
+    src: "{{ item }}"
+    dest: "{{ xsd_file }}-{{ env }}"
+  with_items:
+    - "{{ xsd_schema }}"
+
+- name: Validation with xmllint
+  shell: "xmllint --schema {{ item }}"
+  with_items:
+    - "{{ xsd_file }}-{{ env }} {{ xml_file }}-{{ env }}"
