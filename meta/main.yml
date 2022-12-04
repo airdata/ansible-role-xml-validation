@@ -2,7 +2,7 @@ galaxy_info:
   author: Rumen Lishkov
   description: XML validation against XSD schema
   company: Amadeus
-  role_name: name
+  role_name: xml_validation
   namespace: airdata
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
