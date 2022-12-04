@@ -1,6 +1,7 @@
 Role Name
 =========
-[![Build Status](https://app.travis-ci.com/airdata/ansible-role-yaml-validation.svg?branch=main)](https://travis-ci.org/airdata/ansible-role-yaml-validation)
+
+[![.github/workflows/test.yml](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/test.yml/badge.svg)](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/test.yml)
 
 A brief description of the role goes here.
 
