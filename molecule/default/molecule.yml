@@ -18,4 +18,3 @@ scenario:
     - create
     - converge
     - verify
-    - destroy
