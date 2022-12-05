@@ -7,7 +7,13 @@
   apk:
     name: libxml2-utils
     state: latest
-  when: "'libxml2-utils' not in ansible_facts.packages"
+  when: "libxml2-utils' not in ansible_facts.packages and ansible_os_family == 'Alpine'"
+
+- name: Install libxml2-utils
+  yum:
+    name: libxml2-utils
+    state: latest
+  when: "libxml2-utils' not in ansible_facts.packages and ansible_os_family == 'RedHat'"
 
 - name: Populate XML file
   template:
