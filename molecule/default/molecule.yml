@@ -4,9 +4,10 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: AlpineInstance
     image: alpine:latest
-    pre_build_image: true
+  - name: CenoOSInstance
+    image: centos:7
 provisioner:
   name: ansible
 verifier:
