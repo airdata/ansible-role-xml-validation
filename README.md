@@ -1,7 +1,7 @@
 Role Name
 =========
 
-[![.github/workflows/test.yml](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/test.yml/badge.svg)](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/test.yml)
+[![.github/workflows/test.yml](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/molecule_test.yml/badge.svg)](https://github.com/airdata/ansible-role-xml-validation/actions/workflows/test.yml)
 
 A brief description of the role goes here.
 
