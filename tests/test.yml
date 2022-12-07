@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   vars:
     templates_folder: templates
     xml_path: "{{ templates_folder }}/{{ xml_file }}"
