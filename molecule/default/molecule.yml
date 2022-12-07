@@ -4,10 +4,12 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: AlpineInstance
-    image: alpine:latest
-  - name: CenoOSInstance
-    image: centos:7
+  - name: CentOS
+    image: quay.io/centos/centos:stream8
+    pre_build_image: true
+  - name: Alpine
+    image: airdata/python-3.9-alpine-bash
+    pre_build_image: true
 provisioner:
   name: ansible
 verifier:

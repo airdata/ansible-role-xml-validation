@@ -3,6 +3,6 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: "Include ansible-role-xml-validation"
+    - name: "Include airdata.xml_validation"
       ansible.builtin.include_role:
-        name: "ansible-role-xml-validation"
+        name: airdata.xml_validation

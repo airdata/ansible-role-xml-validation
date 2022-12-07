@@ -1,19 +1,25 @@
 ---
-- name: "Check if xmllint is installed"
+- name: Check if xmllint is installed
   package_facts:
-    manager: "auto"
+    manager: auto
 
-- name: Install libxml2-utils
+- name: Install libxml2-utils Alpine
   apk:
     name: libxml2-utils
     state: latest
   when: "'libxml2-utils' not in ansible_facts.packages and ansible_os_family == 'Alpine'"
 
-- name: Install libxml2-utils
+- name: Enable EPEL Repository on CentOS 8
   yum:
-    name: libxml2-utils
+    name: epel-release
     state: latest
-  when: "'libxml2-utils' not in ansible_facts.packages and ansible_os_family == 'RedHat'"
+  when: "'libxml2' not in ansible_facts.packages and ansible_facts['os_family'] == 'RedHat' and ansible_facts['distribution_major_version'] == '8'"
+
+- name: Install libxml2 on RedHat
+  yum:
+    name: libxml2
+    state: latest
+  when: "'libxml2' not in ansible_facts.packages and ansible_os_family == 'RedHat'"
 
 - name: Populate XML file
   template:

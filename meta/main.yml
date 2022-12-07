@@ -2,7 +2,7 @@ galaxy_info:
   author: Amadeus IT Group SA
   description: XML XSD Validation of files
   role_name: xml_validation
-  namespace: airdata  
+  namespace: airdata
   license: Apache 2.0
   min_ansible_version: 2.9
 
