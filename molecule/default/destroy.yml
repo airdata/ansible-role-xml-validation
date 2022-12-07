@@ -1,6 +1,6 @@
 ---
 - name: Destroy
-  hosts: localhost
+  hosts: all
   vars:
     xml_file: xml-file.xml
     xsd_file: xsd-schema.xsd
