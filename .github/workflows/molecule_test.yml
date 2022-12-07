@@ -9,10 +9,3 @@ jobs:
           path: "${{ github.repository }}"
       - name: Molecule for Ansible
         uses: MonolithProjects/action-molecule@v1.4.5
-
-      - name: Test Ansible with Molecule
-        uses: arillso/action.molecule@0.0.5
-        with:
-          command: create
-          working_directory: ${{ github.repository }}
-          scenario: default

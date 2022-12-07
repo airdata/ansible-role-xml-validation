@@ -8,7 +8,7 @@ platforms:
     image: quay.io/centos/centos:stream8
     pre_build_image: true
   - name: Alpine
-    image: airdata/python-3.9-alpine-bash
+    image: airdata/python-3.9-alpine-bash:latest
     pre_build_image: true
 provisioner:
   name: ansible
@@ -20,5 +20,5 @@ scenario:
     - destroy
     - create
     - converge
+    - lint
     - verify
-    - destroy
