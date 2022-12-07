@@ -8,4 +8,4 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule for Ansible
-        uses: airdata/molecule
+        uses: airdata/molecule@latest
