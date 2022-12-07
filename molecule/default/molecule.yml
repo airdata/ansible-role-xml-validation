@@ -17,7 +17,7 @@ verifier:
 scenario:
   name: default
   test_sequence:
+    - destroy
     - create
     - converge
     - verify
-    - destroy
