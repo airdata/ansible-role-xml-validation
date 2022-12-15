@@ -24,18 +24,19 @@
 - name: Populate XML file
   template:
     src: "{{ templates_folder }}/{{ item }}"
-    dest: "{{ xml_file }}-{{ env }}"
+    dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ xml_file }}"
 
 - name: Populate XSD file
   template:
     src: "{{ templates_folder }}/{{ item }}"
-    dest: "{{ xsd_file }}-{{ env }}"
+    dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ xsd_file }}"
 
-- name: Validation with xmllint
-  shell: "xmllint --schema {{ item }}"
-  with_items:
-    - "{{ xsd_file }}-{{ env }} {{ xml_file }}-{{ env }}"
+- name: "Validation with xmllint"
+  shell: "xmllint --schema {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  with_together:
+    - "{{ xsd_file }}"
+    - "{{ xml_file }}"
