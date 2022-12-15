@@ -23,17 +23,17 @@
 
 - name: Populate XML file
   template:
-    src: "{{ item }}"
+    src: "{{ templates_folder }}/{{ item }}"
     dest: "{{ xml_file }}-{{ env }}"
   with_items:
-    - "{{ xml_path }}"
+    - "{{ xml_file }}"
 
 - name: Populate XSD file
   template:
-    src: "{{ item }}"
+    src: "{{ templates_folder }}/{{ item }}"
     dest: "{{ xsd_file }}-{{ env }}"
   with_items:
-    - "{{ xsd_schema }}"
+    - "{{ xsd_file }}"
 
 - name: Validation with xmllint
   shell: "xmllint --schema {{ item }}"
