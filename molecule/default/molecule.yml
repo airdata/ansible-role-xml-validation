@@ -13,8 +13,7 @@ platforms:
 lint: |
   set -e
   yamllint .
-  ansible-lint
-  flake8
+  ansible-lint .
 provisioner:
   name: ansible
 verifier:
