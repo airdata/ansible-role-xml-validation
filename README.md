@@ -7,7 +7,8 @@ A brief description of the role goes here.
 
 Requirements
 ------------
-You can Install role requierments by starting your playbook like that:
+You can Install role requierments by starting your playbook with:
+
         ---
         - name: Install roles requirements
           hosts: localhost
@@ -73,6 +74,7 @@ Example Playbook
 
 Full Playbook with installing the role
 ------------------------------------------------
+
         ---
         - name: Install roles requirements
           hosts: localhost
