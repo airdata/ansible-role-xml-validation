@@ -25,6 +25,7 @@
   template:
     src: "{{ xml_templates_folder }}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
+    mode: u=rwx,g=rwx,o=rx,g+s
   with_items:
     - "{{ xml_file }}"
 
@@ -32,11 +33,12 @@
   template:
     src: "{{ xsd_templates_folder }}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
+    mode: u=rwx,g=rwx,o=rx,g+s
   with_items:
     - "{{ xsd_file }}"
 
 - name: "Validation with xmllint"
-  shell: "xmllint --schema {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  ansible.builtin.command: "xmllint --schema {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
   with_together:
     - "{{ xsd_file }}"
     - "{{ xml_file }}"
