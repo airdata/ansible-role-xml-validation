@@ -23,15 +23,43 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+    ---
+    - name: Install roles requirements
+      hosts: localhost
+    
+      pre_tasks:
+        - name: Creating requirements file
+          copy:
+            dest: "requirements.yml"
+            content: |
+              - src: git@github.com:airdata/ansible-role-xml-validation.git
+                scm: git
+    
+        - name: Install ansible-galaxy requirements
+          local_action:
+            command ansible-galaxy install -r requirements.yml --roles-path roles --force
+          delegate_to: localhost
 
-    - hosts: all
+
+    - name: Run role xml_validation
+      hosts: all
+      gather_facts: yes
       vars:
-        xml_file: files/preinvoicedata-config.xml
-        xsd_schema: files/preinvoicedata-config-schema.xsd
-        env: dev
-      roles:
-          - xml_validation
+        templates_folder: templates/dev
+        xml_file:
+          - xml-file2.xml
+          - xml-file3.xml
+        xsd_file:
+          - xsd-schema2.xsd
+          - xsd-schema3.xsd
+        env: test
+    
+      tasks:
+        - name: ansible-role-xml-validation
+          include_role:
+            name: ansible-role-xml-validation
+
+
 
 License
 -------

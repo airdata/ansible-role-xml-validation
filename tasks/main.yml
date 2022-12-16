@@ -23,14 +23,14 @@
 
 - name: Populate XML file
   template:
-    src: "{{ templates_folder }}/{{ item }}"
+    src: "{{ xml_templates_folder }}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ xml_file }}"
 
 - name: Populate XSD file
   template:
-    src: "{{ templates_folder }}/{{ item }}"
+    src: "{{ xsd_templates_folder }}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ xsd_file }}"
