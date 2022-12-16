@@ -10,6 +10,11 @@ platforms:
   - name: Alpine
     image: airdata/python-3.9-alpine-bash:latest
     pre_build_image: true
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
 provisioner:
   name: ansible
 verifier:
