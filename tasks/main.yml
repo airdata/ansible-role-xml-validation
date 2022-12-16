@@ -39,6 +39,8 @@
 
 - name: "Validation with xmllint"
   ansible.builtin.command: "xmllint --schema {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  register: xmlvallidation 
+  changed_when: xmlvallidation.rc != 0
   with_together:
     - "{{ xsd_file }}"
     - "{{ xml_file }}"
